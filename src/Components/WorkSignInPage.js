@@ -1,9 +1,13 @@
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import WorkSignIn from './WorkSignIn'
 
-const WorkSignInPage = () => (
-    <div>
-        Login
-    </div>
-);
-
-export default WorkSignInPage;
+function App() {
+  return (
+    <MuiThemeProvider>
+      <WorkSignIn />
+    </MuiThemeProvider>
+  );
+}
+  
+  export default App;
