@@ -18,7 +18,7 @@ import Conection from './conection';
 
 
 import '../styles/Ofertantes.css'
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 const Ofertantes = function() {
@@ -35,7 +35,6 @@ const Ofertantes = function() {
       px: 4,
       pb: 3,
     };
-    const navigate = useNavigate();
     const [data, setData] = useState(null);
     const [open, setOpen] = useState(false);
     const handleOpen = () => {
@@ -85,7 +84,7 @@ const Ofertantes = function() {
                <footer className="center">
                  <Stack spacing={2} direction="row" className="center">
                    <Button variant="contained" onClick={handleClose}>Volver</Button>
-                   <Button variant="outlined" onClick={() => navigate('/chat', {replace: true})}>Contactar</Button>
+                   <Button variant="outlined">Contactar</Button>
                  </Stack>
                </footer>
              </Box>
@@ -148,9 +147,7 @@ const Ofertantes = function() {
 
     return (
       <div className="center">
-        <Typography variant="h1" component="h2" align="center" >
-          Carpinteria
-        </Typography>
+        <h1 className="center"> CARPINTERIA </h1>
         <div className="center">{ofertas()}</div>
         <div> {modal()} </div>
       </div>
