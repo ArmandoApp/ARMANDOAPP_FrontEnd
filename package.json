@@ -1,28 +1,29 @@
 {
-  "name": "armandoapp",
+  "name": "armando",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
-    "web-vitals": "^2.1.4"
+    "@types/react": "^16.14.24",
+    "@types/react-dom": "^17.0.14",
+    "antd": "^3.1.6",
+    "axios": "^0.17.1",
+    "material-ui": "^0.20.0",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-fetch": "0.0.9",
+    "react-google-maps": "^9.4.5",
+    "react-router-dom": "4.2.2",
+    "react-scripts": "1.0.17"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
+  "main": "index.js",
+  "author": "Priyank Ahuja",
+  "license": "MIT",
   "browserslist": {
     "production": [
       ">0.2%",
