@@ -1,22 +1,20 @@
 import React, { Component } from "react";
 import axios from "axios";
-import "antd/dist/antd.css";
-import "./Example.css";
+/*import "antd/dist/antd.css";*/
+import "./UserSignIn.css";
 import Paper from 'material-ui/Paper';
 import Avatar from 'material-ui/Avatar';
-import Divider from 'material-ui/Divider';
 import SignInImage from './Images/download.jpg';
-import WorkImage from './Images/work.jpg';
 import { Form, Input, Button } from "antd";
 import { locales } from "moment";
 
 const stylePaper = {
-  height: '800px',
-  width: '400px',
-  background: '#f8f8f9',
-  position: 'relative',
-  marginLeft:'80%',
-  marginTop: '-100px'
+    height: '440px',
+    width: '400px',
+    background: '#f8f8f9',
+    position: 'relative',
+    marginLeft:'35%',
+    marginTop: '70px'
 };
 
 const styleText = {
@@ -25,15 +23,6 @@ const styleText = {
     fontSize: '1.71429rem',
     fontFamily: 'ff-clan-web-pro,"Helvetica Neue",Helvetica,sans-serif!important',
     fontWeight: '400'
-};
-
-const styleDivider = {
-  marginTop: '30px',
-  backgroundColor: 'rgba(210, 210, 210, 0.6)'
-};
-
-const styleDiv2 = {
-  marginTop:'10px'
 };
 
 const FormItem = Form.Item;
@@ -50,15 +39,14 @@ class Signup extends Component {
       if (!err) {
         const values = {
           ...fieldsValue,
-          role: 'Work'        
+          role: 'user'        
         };
         //delete values[""];
         console.log("Received values of form: ", values);
         axios
-          .post("https://api.crossfire37.hasura-app.io/signup", 
-          {
-            "user": {
-              "provider": "username",
+          .post("http://localhost:8080/createUser", {
+            "user" : {
+              "provider" : "username",
               "data": {
                 "username": values.firstname,
                 "password": values.password
@@ -66,12 +54,8 @@ class Signup extends Component {
             },
             "role": values.role,
             "firstname": values.firstname,
-            "lastname": values.lastname,
-            "regno": values.workerNumber,
-            "type": values.workerServiceType,
-            
-            "city": values.city
-          }
+            "lastname":  values.lastname
+            }
           )
           .then(response => {
             console.log(response);
@@ -80,7 +64,7 @@ class Signup extends Component {
             this.setState({ res_received: true });
           })
           .catch(error => {
-            alert("ERROR: User name already exists!")
+            alert("ERROR: User name already exists!");
             console.log(error);
           });
       }
@@ -91,26 +75,19 @@ class Signup extends Component {
     const { getFieldDecorator } = this.props.form;
     let result = null;
     if (this.state.res_received) {
-      alert('Sign Up Succesful!');
-      console.log(this.state.res_received);
+      alert('Sign Up Succesful! Please go to "Ride" to book your ride.');
+      console.log(this.state.res_recieved);
     }
 
     return (
       <Paper style={stylePaper}>
         
         <Form onSubmit={this.handleSubmit} className="signup-form">
-          <div style={{marginTop: '1%', marginBottom: '20px'}}>
-            <Avatar src={SignInImage} size='80px' style={{marginTop: '10%'}}  />  
-            <div style={styleText}>
-              Enjoy Armando
-            </div>
-          </div>
-          <Divider style={styleDivider} />
-          <div style={{marginTop: '20px', marginBottom: '20px'}}>
-            <Avatar src={WorkImage} size='80px'  />  
-            <div style={styleText}           >
-              Sign up to work
-            </div>
+          <div style={{marginLeft:'0px', marginBottom: '40px'}}>
+              <Avatar src={SignInImage} size='80px' />  
+              <div style={styleText}>
+                Request a service 
+              </div>
           </div>
           <FormItem>
             {getFieldDecorator("firstname", {
@@ -137,16 +114,6 @@ class Signup extends Component {
             })(<Input placeholder="Email" />)}
           </FormItem>
           <FormItem>
-            {getFieldDecorator("workerNumber", {
-              rules: [{ required: true, message: "Please input your phone number!!" }]
-            })(<Input placeholder="Work Registration Number" />)}
-          </FormItem>
-          <FormItem>
-            {getFieldDecorator("workerServiceType", {
-              rules: [{ required: true, message: "Please input the name of the service you plan to provide!" }]
-            })(<Input placeholder="Worker Service Type" />)}
-          </FormItem>          
-          <FormItem>
             {getFieldDecorator("password", {
               rules: [
                 { required: true, message: "Please input your Password!" },
@@ -154,18 +121,14 @@ class Signup extends Component {
               ]
             })(<Input type="password" placeholder="Password" />)}
           </FormItem>
-          <FormItem>
-            {getFieldDecorator("city", {
-              rules: [{ required: true, message: "Please input your City!" }]
-            })(<Input placeholder="City" />)}
-          </FormItem>
+        
           <FormItem>
             <Button
               type="primary"
               htmlType="submit"
               className="signup-form-button"
             >
-              SIGN UP AS WORKER
+              SIGN UP
             </Button>
             Or <a href="/Login">Login</a>
           </FormItem>
