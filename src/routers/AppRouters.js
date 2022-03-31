@@ -9,6 +9,7 @@ import WorkSignInPage from './../Components/WorkSignInPage';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LoginPage from './../Components/LoginPage';
 import ServicePage from './../Components/ServicePage';
+import ListOfServicePage from './../Components/ListServicePage';
 
 
 
@@ -20,7 +21,7 @@ const AppRouter = () => (
                 <Route path="/" component={HomePage} exact={true} />
                 <Route path="/UserSignIn" component={UserSignInPage} />
                 <Route path="/WorkSignIn" component={WorkSignInPage} />
-                
+                <Route path="/ListOfService" component={ListOfServicePage} />
                 <Route path="/Service" component={ServicePage} />
                 <Route path="/Login" component={LoginPage} />
                 <Route path="/help" component={HelpPage} />
