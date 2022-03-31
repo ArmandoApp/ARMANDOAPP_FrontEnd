@@ -56,7 +56,9 @@ export default class ToolbarExamplesSimple extends React.Component {
               href="/"
             /> 
             <Tabs style={styleTabs} inkBarStyle={styleInkBar}>
-              <Tab label="SERVICE" style={StyleTab.TabLeft} href="/bookACab">
+              <Tab label="SERVICES" style={StyleTab.TabLeft} href="/Service">
+              </Tab>
+              <Tab label="SEARCH SERVICE" style={StyleTab.TabLeft} href="/ListOfService">
               </Tab>
               <Tab label="WORK" style={StyleTab.TabLeft} href="/WorkSignIn">
               </Tab>
