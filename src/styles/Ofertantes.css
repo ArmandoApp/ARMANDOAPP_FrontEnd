@@ -2,18 +2,7 @@ body {
   background-color: rebeccapurple;
 }
 
-.center {
-  margin: auto;
-  width: 50%;
-  padding: 5px;
-}
-
-.avatar {
-  margin-left: 50px;
-}
-
-h1 {
-  font-variant: normal;
-  font-style: oblique;
+List {
+  width: "100%";
 }
 /*# sourceMappingURL=Ofertantes.css.map */
