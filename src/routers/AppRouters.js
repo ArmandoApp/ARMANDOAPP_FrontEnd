@@ -10,6 +10,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import LoginPage from './../Components/LoginPage';
 import ServicePage from './../Components/ServicePage';
 import ListOfServicePage from './../Components/ListServicePage';
+import Payment from "../Components/Payment";
 
 
 
@@ -25,6 +26,7 @@ const AppRouter = () => (
                 <Route path="/Service" component={ServicePage} />
                 <Route path="/Login" component={LoginPage} />
                 <Route path="/help" component={HelpPage} />
+                <Route path="/payment" component={Payment} />
                 <Route component={NotFoundPage} />
             </Switch>
         </MuiThemeProvider>
